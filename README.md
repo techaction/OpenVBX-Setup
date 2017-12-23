@@ -70,7 +70,7 @@ For installation we recommend using Ubuntu Server 16.04 which can be found
 
 After installation clone this repository
 
-`clone code`
+`git clone https://github.com/techaction/OpenVBX-Setup.git`
 
 
 Then cd into the directory
