@@ -68,6 +68,29 @@ For installation we recommend using Ubuntu Server 16.04 which can be found
 [here](https://www.ubuntu.com/download/server)
 
 
+This setup should be run using a non-root user.  If you are installing Ubuntu
+Server on your own machine then this is part of the initial setup and install.
+If you are using a cloud VPS provider (DigitalOcean, Amazon, Linode, etc) often
+the default user is root.
+
+
+To create a non-root user and add that new user to the sudo group do the
+following:
+
+Create new user
+
+`useradd -m [the username for the new user]`
+
+Create the password for the new user
+
+`passwd [new user name]`
+
+Add new user to sudoers group (allow then to run commands with administrative
+    privileges)
+
+`usermod -a -G sudo [username of new user]`
+
+
 After installation clone this repository
 
 `git clone https://github.com/techaction/OpenVBX-Setup.git`
@@ -80,7 +103,7 @@ Then cd into the directory
 
 Execute the script to install
 
-`python3 openVBXsetup.py`
+`sudo python3 openVBXsetup.py`
 
 
 This is not an unattended installation, and will, at various points, require
