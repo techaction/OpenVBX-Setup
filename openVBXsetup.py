@@ -53,7 +53,7 @@ print('[*] Remember username and password for database to use during post instal
 print('\n')
 print('[*] Setting Up Database...')
 print('\n')
-mysql_cmd = 'echo "CREATE DATABASE OpenVBX; GRANT ALL PRIVILEGES ON OpenVBX.* TO ' + user + '@localhost IDENTIFIED BY ' + dbpass + '; FLUSH PRIVILEGES" | sudo mysql -p'
+mysql_cmd = 'echo "CREATE DATABASE OpenVBX; GRANT ALL PRIVILEGES ON OpenVBX.* TO ' + user + '@localhost IDENTIFIED BY "' + dbpass + '"; FLUSH PRIVILEGES" | sudo mysql -p'
 os.system('sudo ' + mysql_cmd)
 print('\n')
 
