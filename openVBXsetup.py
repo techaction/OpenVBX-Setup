@@ -1,8 +1,7 @@
 import os
-from termcolor import colored
 import time
 
-print(colored('''
+print('''
 
 
  _______  _______  _______  __    _  __   __  _______  __   __
@@ -29,12 +28,12 @@ By the Technology Action Project
 https://techaction.io
 
 -----------------------------------------------------------------
-''', 'yellow', attrs=['bold']))
+''')
 
 
 
 print('\n')
-print(colored('[*] Updating System, Installing PHP 5.6 and Other Dependencies', 'yellow', attrs=['bold']))
+print('[*] Updating System, Installing PHP 5.6 and Other Dependencies')
 print('\n')
 os.system('sudo apt update && sudo apt upgrade -y')
 os.system('''sudo apt-get purge `dpkg -l | grep php| awk '{print $2}' |tr "\n" " "`''')
@@ -45,19 +44,20 @@ os.system('sudo apt-get install php5.6')
 os.system('sudo apt-get install mysql-server apache2 libapache2-mod-php5.6 php5.6-mysql php5.6-curl sendmail')
 
 print('\n')
-print(colored('[*] Creating Databases', 'yellow', attrs=['bold']))
+print('[*] Creating Databases')
 print('\n')
-dbpass = input(colored('Password for OpenVBX database: ', 'green'))
+user = input('Database User (not root...): ')
+dbpass = input('Password for OpenVBX database: ')
 print('\n')
-print(colored('[*] Remember username and password for database to use during post installation setup', 'red', attrs=['bold']))
+print('[*] Remember username and password for database to use during post installation setup')
 print('\n')
-print(colored('[*] Setting Up Database...', 'yellow', attrs=['bold']))
+print('[*] Setting Up Database...')
 print('\n')
 mysql_cmd = 'echo "CREATE DATABASE OpenVBX; GRANT ALL PRIVILEGES ON OpenVBX.* TO ' + user + '@localhost IDENTIFIED BY ' + dbpass + '; FLUSH PRIVILEGES" | sudo mysql -p'
 os.system('sudo ' + mysql_cmd)
 print('\n')
 
-print(colored('[*] Clearing Webroot and Installing OpenVBX', 'yellow', attrs=['bold']))
+print('[*] Clearing Webroot and Installing OpenVBX')
 print('\n')
 os.system('sudo rm -rf /var/www/html/*')
 os.system('git clone https://github.com/techaction/OpenVBX.git')
@@ -65,8 +65,8 @@ os.system('sudo cp -r OpenVBX/* /var/www/html')
 os.system('sudo chmod 777 -Rf /var/www/html/OpenVBX/config')
 os.system('sudo chmod 777 -Rf /var/www/html/OpenVBX/audio-uploads')
 print('\n')
-print(colored('[*] Restarting Apache Server', 'yellow', attrs=['bold']))
+print('[*] Restarting Apache Server')
 print('\n')
 os.system('sudo service apache2 restart')
 print('\n')
-print(colored('[+] Installation Complete!', 'yellow', attrs=['bold']))
+print('[+] Installation Complete!')
