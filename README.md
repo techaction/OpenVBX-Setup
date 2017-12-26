@@ -110,9 +110,18 @@ This is not an unattended installation, and will, at various points, require
 interaction by the user, mostly for the purpose of being able to provide
 passwords.
 
-During installation make sure to write down the database name, database user
-and database password for use during the post installation configuration
-process.
+During installation make sure to write down the following:
+
+Non-Root User name
+
+Non-Root User password
+
+Database Root Password (one will be asked to create password during mysql
+  server installation)
+
+Non-Root Database User (asked during database creation)
+
+Non-Root Database Password (asked during database creation)
 
 
 ### Post installation
