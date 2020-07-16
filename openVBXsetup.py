@@ -55,7 +55,7 @@ print('-' * 20)
 print('[*] Installing PHP 5.6 Dependencies')
 print('-' * 20)
 print('\n')
-os.system('sudo apt-get install mysql-server apache2 libapache2-mod-php5.6 php5.6-mysql php5.6-curl php5.6-xml sendmail')
+os.system('sudo apt-get install mysql-server apache2 libapache2-mod-php5.6 php5.6-mysql php5.6-curl php5.6-xml sendmail git')
 
 print('\n')
 print('-' * 20)
